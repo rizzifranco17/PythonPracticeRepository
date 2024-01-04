@@ -5,3 +5,4 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/rizzifranco17/PracticeRepository.git
 git push -u origin main
+This is just a practice repository 
