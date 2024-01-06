@@ -1,0 +1,8 @@
+x = "a"
+valor = None
+try:
+    valor = int(x)
+except Exception as e:
+    print ("Hubo un error:",e)
+finally:
+    print ("El valor es",valor)     
