@@ -43,3 +43,7 @@ my_new_dict = dict.fromkeys((my_list))
 print(my_new_dict)
 my_new_dict = dict.fromkeys(my_dict,("Franco", "Rizzi"))
 print (my_new_dict)
+
+print(list(my_new_dict))
+print(tuple(my_new_dict))
+print (set(my_new_dict))
