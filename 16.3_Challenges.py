@@ -4,17 +4,20 @@ Hecho estom impre los numeros primos entre 1 y 100'''
 
 
 
-def is_prime(number):
-    if number < 2:
-        return False 
-    elif number / number == 0:
-        return True 
-    elif number / 1 == 0: 
-   
+def is_prime():
+    for number in range (1,100):
 
+ 
+        if number >= 2:
+         
+            is_divisible = False 
+            for index in range (2,number):
 
-     return True
+             if number % index == 0:
+                 is_divisible =  True
+                 break   
+            if not is_divisible:
+                 print (number)   
+    
 
-
-
-is_prime(2)
+is_prime()
