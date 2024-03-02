@@ -43,7 +43,15 @@ import os
 
 #.cvs 
 import csv 
+csv_file = open ("/Users/francorizzi/Code/PythonScripting/PythonPracticeRepository/Intermidiate/my_file.csv", "w+")
 
-csv_file = open ("/Users/francorizzi/Code/PythonScripting/PythonPracticeRepository/Intermidiate/my_file.csv")
+csv_write =csv.writer(csv_file)
+csv_write.writerow (["Name", "Lastname", "Age","Languaje"])
+csv_write.writerow(["Franco","Rizzi", 27,"English"])
+csv_write.writerow(["Male","Espinosa", 26,"Español"])
 
-import xml
+csv_file.close()
+
+with open ("/Users/francorizzi/Code/PythonScripting/PythonPracticeRepository/Intermidiate/my_file.csv") as my_other_file:
+    for line in my_other_file.readlines():
+        print(line)
