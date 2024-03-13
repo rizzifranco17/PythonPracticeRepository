@@ -14,11 +14,14 @@ import pandas
 
 import requests
 
-response = requests.get ("https://pokeapi.co/api/v2/pokemon?limit=151")
-print (response)
-print (response.status_code)
-print (response.json())
+#response = requests.get ("https://pokeapi.co/api/v2/pokemon?limit=151")
+#print (response)
+#print (response.status_code)
+#print (response.json())
 
 # Arithmetics Package
 from mypackage import arithmetics
 print (arithmetics.sum_two_values(1,4))
+
+from my_other_package import otherarithmetics
+print (otherarithmetics(4,3))
