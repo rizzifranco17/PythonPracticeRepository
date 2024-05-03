@@ -7,5 +7,6 @@ async def root():
     return "Hola FastAPI!"
 
 @app.get ("/url")
-async def root():
-    return{ "url_curso":"https://mouredev.com/python"}
+async def url():
+    return{ "url":"https://mouredev.com/python"}
+
