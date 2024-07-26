@@ -35,20 +35,19 @@ async def user(id:int):
 @app.get ("/userquery/")
 async def user(id:int):
     return search_user (id)
-@app.post("/user/")
+
+app.post("/user/")
 async def user(user:User):
-   if type(search_user(user.id)) == User:
-        return {"error":"user not found"}
-
-   else:
-
-    users_list.append(user)    
+    if type (search_user(user.id))==User:
+        return("error":"User already exist")
+    else:
+        users_list.append(user)
 
 
 def search_user(id:int):
-    users = filter(lambda user: user.id == id, users_list)
+    users = filter (lambda user: user.id == id, users_list)
     try:
         return list (users)[0]
     except:
-        return {"error":"user not found"}
-    
+        return ("error":"User not found")
+
