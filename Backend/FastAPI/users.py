@@ -39,9 +39,21 @@ async def user(id:int):
 app.post("/user/")
 async def user(user:User):
     if type (search_user(user.id))==User:
-        return("error":"User already exist")
+     return{"error":"User already exist"}
     else:
         users_list.append(user)
+
+app.put("/user/")
+async def user(user:User):
+
+    Found = False
+
+    for index,saved_user in enumerate(users_list):
+        if saved_user.id == user.id:
+            users_list[index] = user
+
+    if not Found:
+        return {"error":"User not found"}
 
 
 def search_user(id:int):
@@ -49,5 +61,5 @@ def search_user(id:int):
     try:
         return list (users)[0]
     except:
-        return ("error":"User not found")
+        return {"error":"User not found"}
 
