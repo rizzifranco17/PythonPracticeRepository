@@ -28,12 +28,12 @@ async def usersjson():
 async def users():
     return users_list
 
-@app.get ("/user/{id}")
+@app.get ("/user/{id}") #path
 async def user(id:int):
     return search_user (id)
     
     
-@app.get ("/userquery/")
+@app.get ("/userquery/") #query
 async def user(id:int):
     return search_user (id)
 
@@ -43,6 +43,7 @@ async def user(user:User):
      return{"error":"User already exist"}
     else:
         users_list.append(user)
+        return user
 
 app.put("/user/")
 async def user(user: User):
@@ -56,6 +57,24 @@ async def user(user: User):
 
     if not found:
         return {"error":"User not found"}
+    else:
+        return user
+
+
+app.delete("/user/{id}")
+async def user(id:int):
+
+    found = False
+
+    for index, saved_user in enumerate(users_list):
+        if saved_user.id == id:
+            del users_list [index]
+            found = True
+
+        if not found:
+            return {"error":"user not found"}
+
+
 
 
 def search_user(id:int):
