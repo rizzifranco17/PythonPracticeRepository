@@ -71,8 +71,8 @@ async def user(id:int):
             del users_list [index]
             found = True
 
-        if not found:
-            return {"error":"user not found"}
+    if not found:
+        return {"error":"user not found"}
 
 
 
