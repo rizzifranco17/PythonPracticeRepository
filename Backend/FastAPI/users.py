@@ -44,15 +44,16 @@ async def user(user:User):
         users_list.append(user)
 
 app.put("/user/")
-async def user(user:User):
+async def user(user: User):
 
-    Found = False
+    found = False
 
-    for index,saved_user in enumerate(users_list):
+    for index, saved_user in enumerate(users_list):
         if saved_user.id == user.id:
             users_list[index] = user
+            found = True
 
-    if not Found:
+    if not found:
         return {"error":"User not found"}
 
 
