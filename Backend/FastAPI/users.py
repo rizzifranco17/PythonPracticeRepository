@@ -16,7 +16,8 @@ class User(BaseModel):
 
 users_list =[User(id=1,name="Franco", lastname="Rizzi",Team="BocaJuniors",age=27),
              User(id=2,name="Rizzi",lastname="Franco",Team="Bokee",age=30),
-             User(id=3,name="Franco", lastname="Zingaretti",Team="CABJ",age=25)]
+             User(id=3,name="Franco", lastname="Zingaretti",Team="CABJ",age=25),
+             User(id=4,name="Franco", lastname="Zingaretti",Team="CABJ",age=25)]
 @app.get ("/usersjson")
 async def usersjson():
     return [{"name": "Franco", "lastname": "Rizzi", "Team": "BocaJuniors", "age": 27},
@@ -63,4 +64,3 @@ def search_user(id:int):
         return list (users)[0]
     except:
         return {"error":"User not found"}
-
