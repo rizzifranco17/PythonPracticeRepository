@@ -24,7 +24,7 @@ async def usersjson():
             {"name": "Rizzi", "lastname": "Franco", "Team": "Bokee", "age":30},
             {"name": "Franco", "lastname": "Zingaretti", "Team": "CABJ", "age":25}]
 
-@app.get ("/users")
+@app.get ("/user/")
 async def users():
     return users_list
 
@@ -37,7 +37,7 @@ async def user(id:int):
 async def user(id:int):
     return search_user (id)
 
-app.post("/user/")
+@app.post("/user/")
 async def user(user:User):
     if type (search_user(user.id))==User:
      return{"error":"User already exist"}
@@ -45,10 +45,11 @@ async def user(user:User):
         users_list.append(user)
         return user
 
-app.put("/user/")
+@app.put("/user/")
 async def user(user: User):
 
     found = False
+    print(user)
 
     for index, saved_user in enumerate(users_list):
         if saved_user.id == user.id:
