@@ -1,7 +1,7 @@
 from fastapi import FastAPI 
 from pydantic import BaseModel
 
-
+#uvicorn users:app --reload --> TO Run
 app = FastAPI()
 
 #Entity user
@@ -62,7 +62,7 @@ async def user(user: User):
         return user
 
 
-app.delete("/user/{id}")
+@app.delete("/user/{id}")
 async def user(id:int):
 
     found = False
