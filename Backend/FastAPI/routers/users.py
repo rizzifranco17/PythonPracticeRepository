@@ -1,8 +1,8 @@
-from fastapi import FastAPI , HTTPException
+from fastapi import APIRouter , HTTPException
 from pydantic import BaseModel
 
 #uvicorn users:app --reload --> TO Run
-app = FastAPI()
+router = APIRouter()
 
 #Entity user
 
@@ -18,26 +18,26 @@ users_list =[User(id=1,name="Franco", lastname="Rizzi",Team="BocaJuniors",age=27
              User(id=2,name="Rizzi",lastname="Franco",Team="Bokee",age=30),
              User(id=3,name="Franco", lastname="Zingaretti",Team="CABJ",age=25),
              User(id=4,name="Franco", lastname="Zingaretti",Team="CABJ",age=25)]
-@app.get ("/usersjson")
+@router.get ("/usersjson")
 async def usersjson():
     return [{"name": "Franco", "lastname": "Rizzi", "Team": "BocaJuniors", "age": 27},
             {"name": "Rizzi", "lastname": "Franco", "Team": "Bokee", "age":30},
             {"name": "Franco", "lastname": "Zingaretti", "Team": "CABJ", "age":25}]
 
-@app.get ("/user/")
+@router.get ("/user/")
 async def users():
     return users_list
 
-@app.get ("/user/{id}") #path
+@router.get ("/user/{id}") #path
 async def user(id:int):
     return search_user (id)
     
     
-@app.get ("/userquery/") #query
+@router.get ("/userquery/") #query
 async def user(id:int):
     return search_user (id)
 
-@app.post("/user/", response_model= User, status_code=201)
+@router.post("/user/", response_model= User, status_code=201)
 async def user(user:User):
     if type (search_user(user.id))==User:
        raise HTTPException(status_code=404, detail="User already exist")
@@ -65,7 +65,7 @@ async def user(user: User):
         return user
 
 
-@app.delete("/user/{id}")
+@router.delete("/user/{id}")
 async def user(id:int):
 
     found = False

@@ -12,7 +12,7 @@ app.include_router(products.router)
 
 @app.get("/")
 async def root():
-    return "Bocaaaaaaa"
+    return "Hello FastAPI"
 
 @app.get("/url")
 async def url():
