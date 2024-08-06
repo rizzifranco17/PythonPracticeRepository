@@ -48,7 +48,7 @@ async def user(user:User):
 
 
 
-@app.put("/user/")
+@router.put("/user/")
 async def user(user: User):
 
     found = False
